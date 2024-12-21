@@ -1,0 +1,28 @@
+name: Stop Python Script at 9:55 PM IST
+
+on:
+  schedule:
+    # Runs every day at 4:25 PM UTC (9:55 PM IST)
+    - cron: '25 16 * * *'
+
+jobs:
+  stop-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Stop the script (if applicable)
+      - name: Stop Python Script
+        run: |
+          # You can forcefully stop the script by terminating its process or using a timeout.
+          # Here is an example of stopping it after 10 minutes (adjust logic as needed).
+          pkill -f script.py  # This command will stop the script by killing its process.

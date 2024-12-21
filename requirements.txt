@@ -1,0 +1,10 @@
+import time
+
+# Start task at 9:45 PM IST (4:15 PM UTC)
+print("Starting the task...")
+
+# Keep the task running for 10 minutes (from 9:45 PM IST to 9:55 PM IST)
+time.sleep(600)  # Sleep for 10 minutes (600 seconds)
+
+# Stop the task after 10 minutes
+print("Task stopped after 10 minutes.")

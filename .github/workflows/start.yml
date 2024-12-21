@@ -1,0 +1,31 @@
+name: Start Python Script at 9:45 PM IST
+
+on:
+  schedule:
+    # Runs every day at 4:15 PM UTC (9:45 PM IST)
+    - cron: '15 16 * * *'
+
+jobs:
+  start-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Specify your Python version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Run Python script
+      - name: Run Python Script
+        run: python script.py  # Specify the path to your Python script
